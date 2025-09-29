@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>I'm Sorry ❤️</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Segoe UI, Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to bottom, #ffb6b9, #ffdde1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            text-align: center;
+            color: #333;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.85);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #e63946;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        button {
+            background: #e63946;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #d62828;
+            transform: scale(1.1);
+        }
+
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            transform: rotate(-45deg);
+            animation: float 4s linear infinite;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: red;
+            border-radius: 50%;
+        }
+
+        .heart::before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 10px;
+            top: 0;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) scale(1) rotate(-45deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-50px) scale(1.5) rotate(-45deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hearts"></div>
+    <div class="container">
+        <h1>I'm Truly Sorry 💔</h1>
+        <p>I've realized my mistake. I never want to hurt you and I hope you can forgive
+            me.</p>
+        <button onclick="showApology()">Show My Heartfelt Apology</button>
+        <p id="apologyMessage" style="margin-top:20px;font-weight:bold;display:none;">Please forgive me ❤️</p>
+    </div>
+    <script>
+        function showApology() { document.getElementById('apologyMessage').style.display = 'block'; }
+        const heartsContainer = document.querySelector('.hearts');
+        function createHeart() { const heart = document.createElement('div'); heart.className = 'heart'; heart.style.left = Math.random() * window.innerWidth + 'px'; heart.style.animationDuration = (2 + Math.random() * 3) + 's'; heartsContainer.appendChild(heart); setTimeout(() => { heart.remove(); }, 4000); }
+        setInterval(createHeart, 300);
+    </script>
+</body>
+
+</html>
